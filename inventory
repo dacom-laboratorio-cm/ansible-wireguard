@@ -1,4 +1,4 @@
 [wireguard]
-hostname=wireguard ansible_ssh_host=   ansible_user= ansible_ssh_private_key_file=
+hostname=wireguard ansible_ssh_host=172.16.255.205   ansible_user=root host_key_checking=false
 [wireguard:vars]
 ansible_python_interpreter = /usr/bin/python3

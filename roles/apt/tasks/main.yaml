@@ -1,7 +1,7 @@
 ---
 - name: timesync
   become_user: root
-  shell: timedatectl set-timezone Asia/Yangon
+  shell: timedatectl set-timezone America/Sao_Paulo
 - name: apt-get update
   become_user: root
   apt:

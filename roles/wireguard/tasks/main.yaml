@@ -30,11 +30,11 @@
   shell: echo "ListenPort = 51820" >> /etc/wireguard/wg0.conf
 - name: Import Post UP
   become_user: root
-  shell: echo "PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE; ip6tables -A FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -A POSTROUTING -o $(ip -br l | awk '$1 ~ "e" { print $1}') -j MASQUERADE" >> /etc/wireguard/wg0.conf
+  shell: echo "PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE;" >> /etc/wireguard/wg0.conf
 
 - name: Import Post Down
   become_user: root
-  shell: echo "PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o $(ip -br l | awk '$1 ~ "e" { print $1}') -j MASQUERADE" >> /etc/wireguard/wg0.conf
+  shell: echo "PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE;" >> /etc/wireguard/wg0.conf
 
 - name: Import private key
   become_user: root
